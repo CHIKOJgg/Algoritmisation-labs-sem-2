@@ -1,1 +1,1 @@
-# Algoritmisation labs sem-2
+# Basics of Programming and Algoritmisation labs sem-2
