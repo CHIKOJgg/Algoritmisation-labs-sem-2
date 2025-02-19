@@ -7,10 +7,9 @@ int main() {
     bool running = true;
 
     while (running) {
-        cout << "\nPress 1 to enter information about tickets\n";
+        cout << "Press 1 to enter information about tickets\n";
         cout << "Press 2 to change information\n";
-        cout << "Press 3 to perform additional action\n";
-        cout << "Press 4 to output information\n";
+        cout << "Press 3 to output information\n";
         cout << "Press 0 to quit\n";
         userChoiceValidation();
 
@@ -24,9 +23,6 @@ int main() {
                 cout << "Tickets data successfully changed\n";
                 break;
             case 3:
-                // Дополнительная функциональность
-                break;
-            case 4:
                 outputData();
                 break;
             case 0:
