@@ -8,6 +8,7 @@ int main() {
 
     while (running) {
         cout << "Press 1 to enter information about tickets\n";
+        //TODO add checker of at least one run func of fetchingData till running changing
         cout << "Press 2 to change information\n";
         cout << "Press 3 to output information\n";
         cout << "Press 0 to quit\n";
