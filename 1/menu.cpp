@@ -7,7 +7,7 @@ int main() {
     bool running = true;
 
     while (running) {
-        cout << "Press 1 to enter information about tickets\n";
+        cout << "\nPress 1 to enter information about tickets\n";
         //TODO add checker of at least one run func of fetchingData till running changing
         cout << "Press 2 to change information\n";
         cout << "Press 3 to output information\n";
@@ -21,7 +21,6 @@ int main() {
                 break;
             case 2:
                 changeTicketsData();
-                cout << "Tickets data successfully changed\n";
                 break;
             case 3:
                 outputData();

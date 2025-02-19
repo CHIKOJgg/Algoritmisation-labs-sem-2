@@ -14,7 +14,7 @@ struct ticketsDataSeason {
 };
 
 static ticketsDataSeason allTicketsDataSeason[SEASON_ARR_LENGTH];
-
+bool isFetchingDataRun = false;
 void fetchingData() {
     for (int i = 0; i < SEASON_ARR_LENGTH; i++) {
         cout << "Enter season: ";
@@ -44,6 +44,8 @@ void fetchingData() {
             }
         }
     }
+     
+    isFetchingDataRun = true;
 }
 
 void revenueCalc() {
@@ -53,54 +55,67 @@ void revenueCalc() {
 }
 
 void changeTicketsData() {
-    string searchingSeason;
-    cout << "Enter season name which information you want to change: ";
-    cin >> searchingSeason;
-
-    for (int i = 0; i < SEASON_ARR_LENGTH; i++) {
-        if (searchingSeason == allTicketsDataSeason[i].yearSeason) {
-            cout << "Press 1 to Change ticket price\n";
-            cout << "Press 2 to Change amount of sold tickets\n";
-            cout << "Press 0 to quit changing\n";
-            int p;
-            cin >> p;
-
-            switch (p) {
-                case 1:
-                    while (true) {
-                        cout << "Enter new ticket price: ";
-                        cin >> allTicketsDataSeason[i].price;
-                        if (cin.fail()) {
-                            cin.clear();
-                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                            cout << "Invalid input! Please enter a number.\n";
-                        } else {
-                            break;
+    if (isFetchingDataRun)
+    {
+        string searchingSeason;
+        cout << "Enter season name which information you want to change: ";
+        cin >> searchingSeason;
+    
+        for (int i = 0; i < SEASON_ARR_LENGTH; i++) {
+            if (searchingSeason == allTicketsDataSeason[i].yearSeason) {
+                cout << "Press 1 to Change ticket price\n";
+                cout << "Press 2 to Change amount of sold tickets\n";
+                cout << "Press 0 to quit changing\n";
+                int p;
+                cin >> p;
+    
+                switch (p) {
+                    case 1:
+                        while (true) {
+                            cout << "Enter new ticket price: ";
+                            cin >> allTicketsDataSeason[i].price;
+                            if (cin.fail()) {
+                                cin.clear();
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cout << "Invalid input! Please enter a number.\n";
+                            } else {
+                                break;
+                            }
                         }
-                    }
-                    break;
-                case 2:
-                    while (true) {
-                        cout << "Enter new amount of sold tickets: ";
-                        cin >> allTicketsDataSeason[i].soldTicketsAmount;
-                        if (cin.fail()) {
-                            cin.clear();
-                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                            cout << "Invalid input! Please enter a number.\n";
-                        } else {
-                            break;
+                        break;
+                    case 2:
+                        while (true) {
+                            cout << "Enter new amount of sold tickets: ";
+                            cin >> allTicketsDataSeason[i].soldTicketsAmount;
+                            if (cin.fail()) {
+                                cin.clear();
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cout << "Invalid input! Please enter a number.\n";
+                            } else {
+                                break;
+                            }
                         }
-                    }
-                    break;
-                case 0:
-                    break;
-                default:
-                    cout << "Enter correct value\n";
-                    break;
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        cout << "Enter correct value\n";
+                        break;
+                }
+                break;
+                cout << "Tickets data successfully changed\n";
+
             }
-            break;
+            else{
+                cout << "Enter correct season\n"; break;
+
+            }
         }
     }
+    else{
+        cout << "Enter some data before editing\n";
+    }
+    
 }
 
 void userChoiceValidation() {
