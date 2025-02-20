@@ -5,7 +5,7 @@ extern int userChoice;
 
 int main() {
     bool running = true;
-
+   
     while (running) {
         cout << "\nPress 1 to enter information about tickets\n";
         //TODO add checker of at least one run func of fetchingData till running changing
