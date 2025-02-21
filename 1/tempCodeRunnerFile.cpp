@@ -1,1 +1,2 @@
-void fetchingData() {
+
+                outputData();

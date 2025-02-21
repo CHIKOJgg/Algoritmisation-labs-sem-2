@@ -8,10 +8,11 @@ const int SEASON_ARR_LENGTH = 4;
 
 struct ticketsDataSeason {
     int soldTicketsAmount;
-    double price;
+    int price;
     string yearSeason;
     int ticketsRevenue = 0;
 };
+string SEASON_ARR[4]={"spring", "summer", "autumn", "winter"};
 static ticketsDataSeason allTicketsDataSeason[SEASON_ARR_LENGTH];
 bool isFetchingDataRun = false;
 void fetchingData() {
@@ -23,7 +24,6 @@ void fetchingData() {
             cout << "Enter amount of sold tickets: ";
             cin >> allTicketsDataSeason[i].soldTicketsAmount;
             if( allTicketsDataSeason[i].soldTicketsAmount >=0){
-             
                  if (cin.fail()) {
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -124,7 +124,6 @@ void changeTicketsData() {
 void userChoiceValidation() {
     cout << "Enter your choice: ";
     cin >> userChoice;
-   //TODO make verification of user input
 }
 
 void outputData() {
@@ -137,7 +136,7 @@ void outputData() {
     cout << "Season  Price  Sold Tickets  Revenue\n";
     for (int i = 0; i < SEASON_ARR_LENGTH; i++) {
         cout<<allTicketsDataSeason[i].yearSeason;
-        printf("%12f", allTicketsDataSeason[i].price );
+        printf("%12d", allTicketsDataSeason[i].price );
         printf("%12d",allTicketsDataSeason[i].soldTicketsAmount);
         printf("%12d\n",allTicketsDataSeason[i].ticketsRevenue);
     }
